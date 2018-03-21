@@ -1,0 +1,29 @@
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+
+}
+
+#spelbord {
+        line-height: 52px;
+}
+.wit, .zwart {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: block;
+    float: left;
+    position: relative;
+     
+}
+
+.wit {
+    background-color: white;
+}
+
+.zwart {
+    background-color: black;
+}
