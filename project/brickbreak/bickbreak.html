@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> BrickBreak</title>
+    <style>
+        canvas{
+            background-color: lightblue;
+            display: block;
+            margin: 0;  
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="lolCanvas" width="800" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById('lolCanvas');
+        var ctx = canvas.getContext("2d");
+        var ballradius = 13;
+        var x = canvas.width / 2;
+        var y = canvas.height - 20;
+        var dx = 5;
+        var dy = -5;
+        var lathoogte = 15;
+        var latbreedte = 200;
+        var latXpositie = (canvas.width - latbreedte) / 2;
+        var rightpressed = false;
+        var leftpressed = false;
+        var balktrowcount = 15;
+        var balkcolumcount = 8;
+        var balkwidth = 70;
+        var brickheiht = 50;
+        var brickpadding = 8;
+        var balkoffsetleft = 18;
+        var balkoffsetright = 18;
+        var score = 0;
+        var lives = 5;
+        var balken = [];
+        for (var i = 0; i < balkcolumcount; i++) {
+            brick[i] = []
+            for (var j = 0; j < balktrowcount; j++) {
+                balken[i][j] = {x:0,y:0,status: 1};
+                console.log(brick[i][j]);
+            }
+            }
+
+        
+function tekenbalk()
+        
+    </script>
+</body>
+
+
+</html>
