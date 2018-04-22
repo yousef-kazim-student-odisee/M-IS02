@@ -3,6 +3,7 @@ Ik ga een spel maken, brickbreak.
 ik heb het basis idee getekent op papier
 ik heb alle var op gesomest op papier en gecodeert
 ik en nu bezig met de tekennen van de balken
+ik heb de ballekn kunnen tekenen en mooi verplaats
 
 Note!!!!!
 ==========wat moet nog komen=============
