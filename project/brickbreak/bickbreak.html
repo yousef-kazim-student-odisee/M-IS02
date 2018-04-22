@@ -4,16 +4,25 @@
 <head>
     <title> BrickBreak</title>
     <style>
+    
         canvas{
             background-color: lightblue;
             display: block;
-            margin: 0;  
+            margin: 0; 
+            width: 100%;
+            height: 90%;
         }
+        .lolCanvas{
+            
+            width: 100%;
+            height: 50%;
+        }
+        
     </style>
 </head>
 
 <body>
-    <canvas id="lolCanvas" width="800" height="500"></canvas>
+    <canvas id="lolCanvas" ></canvas>
     <script>
         var canvas = document.getElementById('lolCanvas');
         var ctx = canvas.getContext("2d");
@@ -27,26 +36,46 @@
         var latXpositie = (canvas.width - latbreedte) / 2;
         var rightpressed = false;
         var leftpressed = false;
-        var balktrowcount = 15;
-        var balkcolumcount = 8;
-        var balkwidth = 70;
-        var brickheiht = 50;
-        var brickpadding = 8;
-        var balkoffsetleft = 18;
-        var balkoffsetright = 18;
+        var balktrowcount = 25;
+        var balkcolumcount = 10;
+        var balkwidth = 10;
+        var balkheight = 5;
+        var balkpadding = 1;
+        var balkoffsetleft = 12;
+        var balkoffsettop = 5;
         var score = 0;
         var lives = 5;
         var balken = [];
         for (var i = 0; i < balkcolumcount; i++) {
-            brick[i] = []
+            balken[i] = []
             for (var j = 0; j < balktrowcount; j++) {
                 balken[i][j] = {x:0,y:0,status: 1};
-                console.log(brick[i][j]);
+                console.log(balken[i][j]);
             }
             }
 
         
-function tekenbalk()
+function tekenbalk(){
+    for( var i =0 ; i < balkcolumcount; i++){
+        for( var j =0 ; j < balktrowcount; j++){
+            if (balken[i][j].status ==1){
+                var balky = (i*(balkheight + balkpadding)) + balkoffsettop;
+                var balkx = (j*(balkwidth + balkpadding)) + balkoffsetleft;
+                balken[i][j].x =balkx;
+                balken[i][j].y =balky;
+                ctx.beginPath();
+                ctx.rect(balkx, balky, balkwidth, balkheight);
+                ctx.fillStyle = "#000000";
+                ctx.fill();
+                ctx.closePath();
+            
+            
+            }
+            
+        }
+    } 
+}
+        tekenbalk();
         
     </script>
 </body>
