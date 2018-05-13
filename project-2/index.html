@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>ball Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <style>
+        section#game {
+            width: 480px;
+            height: 800px;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            position: relative;
+            background-image: url('img/leo.png'), url('img/cr.png'), url('img/gras.png'), url('img/Sky.png');
+            background-position: 80% 90%, 10% 90%, left bottom, left top;
+            background-repeat: no-repeat, no-repeat, repeat-x, repeat-x;
+            position: relative;
+            color: #ffffff;
+            font-size: 30px;
+            font-family: "arial,sans-serif";
+        }
+
+       section#game .score{
+			display: block;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+		
+		section#game .time{
+			display: block;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+		
+		section#game .start{
+			display: block;
+			padding-top: 50%;
+			margin: 0 auto 0 auto;
+			text-align: center;
+			width: 50%;
+			cursor: pointer;
+		}
+		
+		section#game .start .high-scores{
+			text-align: left;
+		}
+
+        section#game .ball {
+            display: block;
+            position: absolute;
+            width: 40px;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        section#game .ball.black {
+            background: url('img/ballblack.png') no-repeat top left;
+        }
+
+        section#game .ball.green {
+            background: url('img/ballgreen.png') no-repeat top left;
+        }
+
+        section#game .ball.red {
+            background: url('img/ballred.png') no-repeat top left;
+        }
+    </style>
+    <script>
+        function addEvent(element, event, delegate) {
+            if (typeof(window.event) != 'undefined' && element.attachEvent)
+                element.attachEvent('on' + event, delegate);
+            else
+                element.addEventListener(event, delegate, false);
+        }
+
+        function Game() {
+            var game = document.querySelector("section#game");
+            var score = game.querySelector("section#game span.score");
+            var high_scores = game.querySelector("section#game ol.high-scores");
+            var time = game.querySelector("section#game span.time");
+            var start = game.querySelector("section#game span.start");
+
+            function ball(Class, Value, MaxTTA) {
+                this.Class = Class;
+                this.Value = Value;
+                this.MaxTTA = MaxTTA;
+            };
+
+            var balls = new Array();
+            balls[0] = new ball('black', 10, 1);
+            balls[1] = new ball('green', 20, 2);
+            balls[2] = new ball('red', 30, 3);
+
+            function Click(event) {
+                if (event.preventDefault) event.preventDefault();
+                if (event.stopPropagation) event.stopPropagation();
+                else event.cancelBubble = true;
+
+                var target = event.target || event.srcElement;
+
+                if (target.className.indexOf('ball') > -1) {
+                    var value = parseInt(target.getAttribute('data-value'));
+                    var current = parseInt(score.innerHTML);
+                    score.innerHTML = current + value;
+                    target.parentNode.removeChild(target);
+                }
+
+                return false;
+            }
+
+    </script>
+</head>
+
+<body>
+    <div id="page">
+        <section id="game">
+            <span class="score">0</span>
+            <span class="time">0</span>
+            <span class="start">START!
+			<ol class="high-scores">
+			</ol>
+			</span>
+        </section>
+    </div>
+</body>
+</html>
